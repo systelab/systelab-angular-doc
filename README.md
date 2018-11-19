@@ -1,8 +1,13 @@
 # Code Conventions
 
+### Angular code conventions
+
+
 ### TSLint
 
 Use the rules defined in the [tslint.json](tslint.json) file in order to follow the code conventions for Systelab
+
+Remember to enable tslint in the project Settings (Language & Frameworks | Typescript | TSLint)
 
 ### Webstorm Code Style Scheme
 
