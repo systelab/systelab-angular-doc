@@ -4,43 +4,59 @@
 
 The purpose of this style guide is to provide guidance on building Angular applications while standarizing some conventions that we have decided to use. Generally speaking you are not going to find anything different that what it is specified in the [Angular Style Guide](https://angular.io/guide/styleguide) by John Papa.
 
-## Naming
+### Naming
 
-### Naming Guidelines
+#### Naming Guidelines
 
-  - Use consistent names for all components following a pattern that describes the component's feature then (optionally) its type. Recommended pattern is `feature.type.js`. There are 2 names for most assets:
+  - Use consistent names for all components following a pattern that describes the component's feature then (optionally) its type. Recommended pattern is `feature.type.ts`. There are 2 names for most assets:
     * the file name (`avengers.component.ts`)
     * the registered component name with Angular (`Component`)
+  - Do use conventional type names including .service, .component, .pipe, .module, and .directive. Invent additional type names if you must but take care not to create too many.
+  
+#### Symbols and file names
+  - Do use consistent names for all assets named after what they represent.
+  - Do use upper camel case for class names.
+  - Do match the name of the symbol to the name of the file.
+  - Do append the symbol name with the conventional suffix (such as Component, Directive, Module, Pipe, or Service) for a thing of that type.
+  - Do give the filename the conventional suffix (such as .component.ts, .directive.ts, .module.ts, .pipe.ts, or .service.ts) for a file of that type.
 
-### Feature File Names
+#### Service names
+  - Do use consistent names for all services named after their feature.
+  - Do suffix a service class name with Service. For example, something that gets data or heroes should be called a DataService or a HeroService.
 
-  - Use consistent names for all components following a pattern that describes the component's feature then (optionally) its type. Recommended pattern is `feature.type.ts`.
+#### Component selectors
+  - Do use dashed-case or kebab-case for naming the element selectors of components.
 
-### Test File Names
+#### Component custom prefix
+  - Do use a hyphenated, lowercase element selector value (e.g. admin-users).
+  - Do use a custom prefix for a component selector. For example, the prefix toh represents from Tour of Heroes and the prefix admin represents an admin feature area.
+  - Do use a prefix that identifies the feature area or the app itself.
 
-  - Name test specifications similar to the component they test with a suffix of `spec`.
+#### Directive selectors
+  - Do Use lower camel case for naming the selectors of directives.
 
-### Component Names
+#### Directive custom prefix
+  - Do use a custom prefix for the selector of directives (e.g, the prefix toh from Tour of Heroes).
+  - Do spell non-element selectors in lower camel case unless the selector is meant to match a native HTML attribute.
 
-  - Use consistent names for all components named after their feature. Use UpperCamelCase for components, as they are constructors.
-  - Append the component name with the suffix `Component`.
+#### Pipe names
+  - Do use consistent names for all pipes, named after their feature.
 
-    ```typescript
-    /**
-     * recommended
-     */
+#### Unit test file names
+  - Do name test specification files the same as the component they test.
+  - Do name test specification files with a suffix of .spec.
+  
+#### End-to-End (E2E) test file names
+  - Do name end-to-end test specification files after the feature they test with a suffix of .e2e-spec.
 
-    // avengers.component.ts
-    export class AvengersComponent { }
-    ```
+#### Angular NgModule names
+  - Do append the symbol name with the suffix Module.
+  - Do give the file name the .module.ts extension.
+  - Do name the module after the feature and folder it resides in.
 
-### Service Names
-
-  - Use consistent names for all services named after their feature. Use UpperCamelCase for services. Only suffix service and factories with `Service` when it is not clear what they are (i.e. when they are nouns).
-
-### Directive Component Names
-
-  - Use consistent names for all directives using camel-case. Use a short prefix to describe the area that the directives belong (some example are company prefix or project prefix).
+  - Do suffix a RoutingModule class name with RoutingModule.
+  - Do end the filename of a RoutingModule with -routing.module.ts.
+  
 
 ## TSLint
 
