@@ -3,7 +3,7 @@
 File | Settings | Editor | Code Style for Windows and Linux 
 WebStorm | Preferences | Editor | Code Style for macOS 
 
-Use the following formater for Webstorm Code Style Scheme.
+Use the [following scheme](webstorm_ts_code_style.xml) for Webstorm Code Style Scheme.
 
 ```xml
 <code_scheme name="Modulab CodeStyle TS copy" version="173">
