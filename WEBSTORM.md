@@ -1,10 +1,9 @@
 # Webstorm Code Style Scheme
 
-For Windows and Linux goto:
-File | Settings | Editor | Code Style 
+Goto:
 
-For macOS goto:
-WebStorm | Preferences | Editor | Code Style
+- File | Settings | Editor | Code Style for Windows and Linux
+- WebStorm | Preferences | Editor | Code Style for macOS
 
 Use the [following scheme](webstorm_ts_code_style.xml) for Webstorm Code Style Scheme.
 
