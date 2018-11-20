@@ -56,7 +56,38 @@ The purpose of this style guide is to provide guidance on building Angular appli
 
   - Do suffix a RoutingModule class name with RoutingModule.
   - Do end the filename of a RoutingModule with -routing.module.ts.
-  
+
+
+### Components
+
+#### Components as elements
+  - Consider giving components an element selector, as opposed to attribute or class selectors.
+
+#### Extract templates and styles to their own files
+  - Do extract templates and styles into a separate file, when more than 3 lines.
+  - Do name the template file [component-name].component.html, where [component-name] is the component name.
+  - Do name the style file [component-name].component.css, where [component-name] is the component name.
+  - Do specify component-relative URLs, prefixed with ./.
+
+#### Decorate input and output properties
+  - Do use the @Input() and @Output() class decorators instead of the inputs and outputs properties of the @Directive and @Component metadata:
+  - Consider placing @Input() or @Output() on the same line as the property it decorates.
+  - Avoid input and output aliases except when it serves an important purpose.
+
+#### Don't prefix output properties
+  - Do name events without the prefix on.
+  - Do name event handler methods with the prefix on followed by the event name.
+
+#### Member sequence
+  - Do place properties up top followed by methods.
+
+#### Delegate complex component logic to services
+  - Do limit logic in a component to only that required for the view. All other logic should be delegated to services.
+  - Do move reusable logic to services and keep components simple and focused on their intended purpose.
+
+#### Put presentation logic in the component class
+  - Do put presentation logic in the component class, and not in the template. Avoid the use of formulas,... in the template.
+
 
 ## TSLint
 
