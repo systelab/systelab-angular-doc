@@ -53,10 +53,8 @@ The purpose of this style guide is to provide guidance on building Angular appli
   - Do append the symbol name with the suffix Module.
   - Do give the file name the .module.ts extension.
   - Do name the module after the feature and folder it resides in.
-
   - Do suffix a RoutingModule class name with RoutingModule.
   - Do end the filename of a RoutingModule with -routing.module.ts.
-
 
 ### Components
 
@@ -87,6 +85,30 @@ The purpose of this style guide is to provide guidance on building Angular appli
 
 #### Put presentation logic in the component class
   - Do put presentation logic in the component class, and not in the template. Avoid the use of formulas,... in the template.
+
+### Services
+#### Services are singletons
+  - Do use services as singletons within the same injector. Use them for sharing data and functionality.
+
+#### Single responsibility
+  - Do create services with a single responsibility that is encapsulated by its context.
+  - Do create a new service once the service begins to exceed that singular purpose.
+
+#### Providing a service
+  - Do provide a service with the app root injector in the @Injectable decorator of the service.
+
+#### Use the @Injectable() class decorator
+  - Do use the @Injectable() class decorator instead of the @Inject parameter decorator when using types as tokens for the dependencies of a service.
+
+### Data Services
+#### Talk to the server through a service
+  - Do refactor logic for making data operations and interacting with data to a service.
+  - Do make data services responsible for XHR calls, local storage, stashing in memory, or any other data operations.
+  - A data service encapsulates these details. It's easier to evolve these details inside the service without affecting its consumers. And it's easier to test the consumers with mock service implementations.
+
+### Directives
+#### Use directives to enhance an element
+  - Do use attribute directives when you have presentation logic without a template.
 
 
 ## TSLint
