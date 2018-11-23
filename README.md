@@ -67,6 +67,7 @@ The purpose of this style guide is to provide guidance on building Angular appli
   - Do use the @Input() and @Output() class decorators instead of the inputs and outputs properties of the @Directive and @Component metadata:
   - Consider placing @Input() or @Output() on the same line as the property it decorates.
   - Avoid input and output aliases except when it serves an important purpose.
+  - Add member-access to all the properties, in that case use public
 
 #### Don't prefix output properties
   - Do name events without the prefix on.
@@ -81,6 +82,30 @@ The purpose of this style guide is to provide guidance on building Angular appli
 
 #### Put presentation logic in the component class
   - Do put presentation logic in the component class, and not in the template. Avoid the use of formulas,... in the template.
+
+#### Example 
+
+```typescript
+@Component({
+	selector: 'systelab-calendar-footer',
+	templateUrl: 'calendar-footer.component.html',
+	styleUrls: ['calendar-footer.component.scss']
+})
+export class CalendarFooterComponent {
+
+	@Input() public currentDate: Date;
+	@Output() public clearDate: EventEmitter<void> = new EventEmitter<void>();
+
+	constructor(private i18nService: I18nService) {
+	}
+
+	public onClearDate(): void {
+		this.clearDate.emit();
+	}
+}
+
+```
+
 
 ### Services
 #### Services are singletons
