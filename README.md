@@ -6,41 +6,14 @@ The purpose of this style guide is to provide guidance on building Angular appli
 
 ### Naming
 
-#### Naming Guidelines
+#### File names
 
-  - Use consistent names for all components following a pattern that describes the component's feature then (optionally) its type. Recommended pattern is `feature.type.ts`. There are 2 names for most assets:
-    * the file name (`avengers.component.ts`)
-    * the registered component name with Angular (`Component`)
-  - Do use conventional type names including .service, .component, .pipe, .module, and .directive. Invent additional type names if you must but take care not to create too many.
-  
-#### Symbols and file names
-  - Do use consistent names for all assets named after what they represent.
-  - Do use upper camel case for class names.
-  - Do match the name of the symbol to the name of the file.
-  - Do append the symbol name with the conventional suffix (such as Component, Directive, Module, Pipe, or Service) for a thing of that type.
-  - Do give the filename the conventional suffix (such as .component.ts, .directive.ts, .module.ts, .pipe.ts, or .service.ts) for a file of that type.
-
-#### Service names
-  - Do use consistent names for all services named after their feature.
-  - Do suffix a service class name with Service. For example, something that gets data or heroes should be called a DataService or a HeroService.
-
-#### Component selectors
-  - Do use dashed-case or kebab-case for naming the element selectors of components.
-
-#### Component custom prefix
-  - Do use a hyphenated, lowercase element selector value (e.g. admin-users).
-  - Do use a custom prefix for a component selector. For example, the prefix toh represents from Tour of Heroes and the prefix admin represents an admin feature area.
-  - Do use a prefix that identifies the feature area or the app itself.
-
-#### Directive selectors
-  - Do Use lower camel case for naming the selectors of directives.
-
-#### Directive custom prefix
-  - Do use a custom prefix for the selector of directives (e.g, the prefix toh from Tour of Heroes).
-  - Do spell non-element selectors in lower camel case unless the selector is meant to match a native HTML attribute.
-
-#### Pipe names
-  - Do use consistent names for all pipes, named after their feature.
+  - Use consistent names for all files following a pattern that describes the component's feature then (optionally) its type. Recommended pattern is `feature.type.ts`.
+  - Do use dashed-case or kebab-case for feauture names.
+  - Do use conventional type names including .component, .service, .pipe, .module, and .directive. Invent additional type names if you must but take care not to create too many (It is optional to use .model).
+  - Add the suffix -dialog for the modal components (`qc-chart-dialog.component.ts`)
+  - Add the suffix -grid -combobox -listbox for the grid, combobox and listbox components (`doctor-grid.component.ts`, `doctor-combobox.component.ts`, `doctor-listbox.component.ts`)
+  - For components, use the same component file name for templates and styles (but with a different extension). For example for `qc-chart.component.ts` use `qc-chart.component.html` and `qc-chart.component.scss`
 
 #### Unit test file names
   - Do name test specification files the same as the component they test.
@@ -49,7 +22,30 @@ The purpose of this style guide is to provide guidance on building Angular appli
 #### End-to-End (E2E) test file names
   - Do name end-to-end test specification files after the feature they test with a suffix of .e2e-spec.
 
-#### Angular NgModule names
+#### Component names
+  - Do use consistent names for all assets named after what they represent.
+  - Do match the name of the symbol to the name of the file.
+  - Do use upper camel case for class names (`QualityControlComponent`)
+  - Do append the symbol name with the conventional suffix (such as Component, Directive, Module, Pipe, or Service) for a thing of that type.
+  - Add the suffix Dialog for the modal components (`DoctorDialog`)
+  - Add the suffix Grid, Combobox or Listbox for the grid, combobox or listbox components (`DoctorGrid`, `DoctorComboBox`, `DoctorListBox`)
+  
+#### Component selectors
+  - Do use dashed-case or kebab-case for naming the element selectors of components.
+  
+#### Service names
+  - Do use consistent names for all services named after their feature.
+  - Do suffix a service class name with Service. For example DoctorService.
+
+#### Directive selectors
+  - Do Use lower camel case for naming the selectors of directives.
+  - Do use a custom prefix for the selector of directives (e.g, the prefix toh from Tour of Heroes).
+  - Do spell non-element selectors in lower camel case unless the selector is meant to match a native HTML attribute.
+
+#### Pipe names
+  - Do use consistent names for all pipes, named after their feature.
+
+#### Module names
   - Do append the symbol name with the suffix Module.
   - Do give the file name the .module.ts extension.
   - Do name the module after the feature and folder it resides in.
