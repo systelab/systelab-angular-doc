@@ -121,11 +121,62 @@ export class CalendarFooterComponent {
 #### Use the @Injectable() class decorator
   - Do use the @Injectable() class decorator instead of the @Inject parameter decorator when using types as tokens for the dependencies of a service.
 
+#### Example 
+
+```typescript
+@Injectable({
+	providedIn: 'root'
+})
+export class LoadingService {
+
+	protected loadingList: boolean[] = [];
+
+	public setLoading() {
+		this.loadingList.push(true);
+	}
+
+	public removeLoading() {
+		if (this.loadingList.length > 0) {
+			this.loadingList.pop();
+		}
+	}
+
+	public isLoading(): boolean {
+		return this.loadingList.length > 0;
+	}
+
+}
+```
+
 ### Data Services
 #### Talk to the server through a service
   - Do refactor logic for making data operations and interacting with data to a service.
   - Do make data services responsible for XHR calls, local storage, stashing in memory, or any other data operations.
   - A data service encapsulates these details. It's easier to evolve these details inside the service without affecting its consumers. And it's easier to test the consumers with mock service implementations.
+
+#### Example 
+
+```typescript
+@Injectable({
+	providedIn: 'root'
+})
+export class PatientService extends BaseService {
+
+	constructor(protected httpClient: HttpClient, protected apiGlobalsService: ApiGlobalsService,
+	            @Optional() @Inject(BASE_PATH) basePath: string) {
+		super(basePath, apiGlobalsService);
+	}
+
+	public createPatient(body: Patient): Observable<Patient> {
+		if (body === null || body === undefined) {
+			throw new Error('Required parameter body was null or undefined when calling createPatient.');
+		}
+		return this.httpClient.post<any>(`${this.basePath}/patients/patient`, body, {
+			headers: this.getAuthorizationHeader(),
+		});
+	}
+}
+```
 
 ### Directives
 #### Use directives to enhance an element
