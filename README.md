@@ -2,6 +2,19 @@
 
 The purpose of this style guide is to provide guidance on building Angular applications while standarizing some conventions that we have decided to use. Generally speaking you are not going to find anything different that what it is specified in the [Angular Style Guide](https://angular.io/guide/styleguide) by John Papa.
 
+## Index
+
+1. [Files](#files)
+2. [Typescript](#typescript)
+3. [Modules](#modules)
+4. [Components](#components)
+5. [Services](#services)
+6. [Data Services](#dataservices)
+7. [Directives](#directives)
+8. [Pipes](#pipes)
+9. [TSLint](#tslint)
+10. [Webstorm Code Style Scheme](#webstorm)
+
 ## Files
 
 ### Rule of One
