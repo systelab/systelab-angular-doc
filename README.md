@@ -2,7 +2,7 @@
 
 The purpose of this style guide is to provide guidance on building Angular applications while standarizing some conventions that we have decided to use. Generally speaking you are not going to find anything different that what it is specified in the [Angular Style Guide](https://angular.io/guide/styleguide) by John Papa.
 
-## File naming
+## Files
 
 ### Rule of One
   - Do define one thing, such as a service or component, per file.
