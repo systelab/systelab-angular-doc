@@ -79,7 +79,49 @@ The purpose of this style guide is to provide guidance on building Angular appli
   - Do name the module after the feature and folder it resides in.
   - Do suffix a RoutingModule class name with RoutingModule.
   - Do end the filename of a RoutingModule with -routing.module.ts.
-  
+
+### Example
+
+```typescript
+@NgModule({
+	imports:         [
+		BrowserModule,
+		FormsModule,
+		DragDropModule,
+		HttpClientModule,
+		SystelabTranslateModule.forRoot(),
+		SystelabPreferencesModule.forRoot(),
+		SystelabComponentsModule.forRoot(),
+		SystelabLoginModule.forRoot(),
+		AgGridModule.withComponents([
+			GridContextMenuCellRendererComponent,
+			GridHeaderContextMenuComponent
+		]),
+		AppRoutingModule
+	],
+	declarations:    [
+		PatientMaintenanceDialog,
+		AppComponent,
+		MainComponent,
+		PageNotFoundComponent,
+		LoginComponent
+	],
+	providers:       [
+		{provide: BASE_PATH, useValue: environment.API_BASE_PATH},
+		{provide: HTTP_INTERCEPTORS, useClass: EmptyBodyInterceptor, multi: true},
+		MessagePopupService,
+		DialogService
+	],
+	entryComponents: [
+		PatientMaintenanceDialog
+	],
+	bootstrap:       [AppComponent]
+})
+export class AppModule {
+}
+
+```
+
 ## Components
 
 ### Component names
@@ -142,9 +184,7 @@ export class CalendarFooterComponent {
 		this.clearDate.emit();
 	}
 }
-
 ```
-
 
 ## Services
 
@@ -188,7 +228,6 @@ export class LoadingService {
 	public isLoading(): boolean {
 		return this.loadingList.length > 0;
 	}
-
 }
 ```
 
@@ -224,18 +263,53 @@ export class PatientService extends BaseService {
 ```
 
 ## Directives
-### Use directives to enhance an element
+
+### Directive names
   - Do use attribute directives when you have presentation logic without a template.
+  - Do append the symbol name with the suffix Directive.
+  - Do give the file name the .directive.ts extension.
 
 ### Directive selectors
   - Do Use lower camel case for naming the selectors of directives.
-  - Do use a custom prefix for the selector of directives (e.g, the prefix toh from Tour of Heroes).
+  - Do use a custom prefix for the selector of directives.
   - Do spell non-element selectors in lower camel case unless the selector is meant to match a native HTML attribute.
 
 ## Pipes
 
 ### Pipe names
   - Do use consistent names for all pipes, named after their feature.
+  - Do append the symbol name with the suffix Pipe.
+  - Do give the file name the .pipe.ts extension.
+
+### Pipe selectors
+  - Do Use lower camel case for naming the selectors of pipes.
+  - Do use a custom prefix for the selector of pipes.
+
+### Example
+```typescript
+@Pipe({
+	name: 'datafilter'
+})
+
+export class DataFilterPipe implements PipeTransform {
+
+	public transform(input: any[], searchString: string): any {
+		const result = [];
+		if (!searchString) {
+			return input;
+		}
+
+		for (const element of input) {
+			if (element.displayName.toLowerCase()
+					.indexOf(searchString.toLowerCase()) > -1) {
+				result.push(element);
+			}
+		}
+		return result;
+	}
+}
+
+```
 
 ## TSLint
 
