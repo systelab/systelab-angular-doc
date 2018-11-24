@@ -1,15 +1,19 @@
 # Code Conventions
 
-## Angular code conventions
-
 The purpose of this style guide is to provide guidance on building Angular applications while standarizing some conventions that we have decided to use. Generally speaking you are not going to find anything different that what it is specified in the [Angular Style Guide](https://angular.io/guide/styleguide) by John Papa.
+
+## Angular code conventions
 
 ### Naming
 
-#### File names
+#### Rule of One
+  - Do define one thing, such as a service or component, per file.
+  - Consider limiting files to 400 lines of code.
+  - Consider limiting html files to 100 lines of code.
 
+#### File names
   - Use consistent names for all files following a pattern that describes the component's feature then (optionally) its type. Recommended pattern is `feature.type.ts`.
-  - Do use dashed-case or kebab-case for feauture names.
+  - Do use dashed-case or kebab-case for feature names.
   - Do use conventional type names including .component, .service, .pipe, .module, and .directive. Invent additional type names if you must but take care not to create too many (It is optional to use .model).
   - Add the suffix -dialog for the modal components (`qc-chart-dialog.component.ts`)
   - Add the suffix -grid -combobox -listbox for the grid, combobox and listbox components (`doctor-grid.component.ts`, `doctor-combobox.component.ts`, `doctor-listbox.component.ts`)
@@ -30,9 +34,6 @@ The purpose of this style guide is to provide guidance on building Angular appli
   - Add the suffix Dialog for the modal components (`DoctorDialog`)
   - Add the suffix Grid, Combobox or Listbox for the grid, combobox or listbox components (`DoctorGrid`, `DoctorComboBox`, `DoctorListBox`)
   
-#### Component selectors
-  - Do use dashed-case or kebab-case for naming the element selectors of components.
-  
 #### Service names
   - Do use consistent names for all services named after their feature.
   - Do suffix a service class name with Service. For example DoctorService.
@@ -52,6 +53,11 @@ The purpose of this style guide is to provide guidance on building Angular appli
   - Do suffix a RoutingModule class name with RoutingModule.
   - Do end the filename of a RoutingModule with -routing.module.ts.
 
+#### Folders names
+  - Create folders named for the feature they represent. 
+  - Do use dashed-case or kebab-case for feauture names.
+  - When a folder grows to contain more than 7 files, start to consider creating a folder for them. Your threshold may be different, so adjust as needed.
+  
 ### Components
 
 #### Components as elements
@@ -62,6 +68,9 @@ The purpose of this style guide is to provide guidance on building Angular appli
   - Do name the template file [component-name].component.html, where [component-name] is the component name.
   - Do name the style file [component-name].component.css, where [component-name] is the component name.
   - Do specify component-relative URLs, prefixed with ./.
+  
+#### Component selectors
+  - Do use dashed-case or kebab-case for naming the element selectors of components.
 
 #### Decorate input and output properties
   - Do use the @Input() and @Output() class decorators instead of the inputs and outputs properties of the @Directive and @Component metadata:
@@ -150,6 +159,7 @@ export class LoadingService {
 
 ### Data Services
 #### Talk to the server through a service
+  - If possible, do use Swagger Codegen
   - Do refactor logic for making data operations and interacting with data to a service.
   - Do make data services responsible for XHR calls, local storage, stashing in memory, or any other data operations.
   - A data service encapsulates these details. It's easier to evolve these details inside the service without affecting its consumers. And it's easier to test the consumers with mock service implementations.
