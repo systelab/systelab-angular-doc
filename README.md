@@ -9,11 +9,11 @@ The purpose of this style guide is to provide guidance on building Angular appli
 3. [Modules](#modules)
 4. [Components](#components)
 5. [Services](#services)
-6. [Data Services](#dataservices)
+6. [Data Services](#data-services)
 7. [Directives](#directives)
 8. [Pipes](#pipes)
 9. [TSLint](#tslint)
-10. [Webstorm Code Style Scheme](#webstorm)
+10. [Webstorm Code Style Scheme](#webstorm-code-style-scheme)
 
 ## Files
 
