@@ -29,7 +29,35 @@ The purpose of this style guide is to provide guidance on building Angular appli
   - Create folders named for the feature they represent. 
   - Do use dashed-case or kebab-case for feauture names.
   - When a folder grows to contain more than 7 files, start to consider creating a folder for them. Your threshold may be different, so adjust as needed.
-  
+
+## Typescript
+  - Have a consistent set of coding, naming, and whitespace conventions.
+
+### Classes
+  - Do use upper camel case when naming classes.
+
+### Constants
+  - Do declare variables with const if their values should not change during the application lifetime.
+  - Consider spelling const variables in lower camel case.
+  - Do tolerate existing const variables that are spelled in UPPER_SNAKE_CASE.
+
+### Interfaces
+  - Do name an interface using upper camel case.
+  - Consider naming an interface without an I prefix.
+  - Consider using a class instead of an interface for services and declarables (components, directives, and pipes).
+  - Consider using an interface for data models.
+
+### Properties and methods
+  - Do use lower camel case to name properties and methods.
+  - Avoid prefixing private properties and methods with an underscore.
+  - Do define small functions
+  - Consider limiting methods to no more than 75 lines.
+
+### Import line spacing
+  - Consider leaving one empty line between third party imports and application imports.
+  - Consider listing import lines alphabetized by the module.
+  - Consider listing destructured imported symbols alphabetically.
+
 ## Modules
 
 ### Module names
