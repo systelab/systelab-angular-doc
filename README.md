@@ -2,31 +2,46 @@
 
 The purpose of this style guide is to provide guidance on building Angular applications while standarizing some conventions that we have decided to use. Generally speaking you are not going to find anything different that what it is specified in the [Angular Style Guide](https://angular.io/guide/styleguide) by John Papa.
 
-## Angular code conventions
+## File naming
 
-### Naming
-
-#### Rule of One
+### Rule of One
   - Do define one thing, such as a service or component, per file.
   - Consider limiting files to 400 lines of code.
   - Consider limiting html files to 100 lines of code.
 
-#### File names
-  - Use consistent names for all files following a pattern that describes the component's feature then (optionally) its type. Recommended pattern is `feature.type.ts`.
+### File names
+  - Use consistent names for all files following a pattern that describes the component's feature then (optionally) its type. Recommended pattern is `feature.type.ts`. 
+  - Do use dots to separate the descriptive name from the type.
   - Do use dashed-case or kebab-case for feature names.
   - Do use conventional type names including .component, .service, .pipe, .module, and .directive. Invent additional type names if you must but take care not to create too many (It is optional to use .model).
   - Add the suffix -dialog for the modal components (`qc-chart-dialog.component.ts`)
   - Add the suffix -grid -combobox -listbox for the grid, combobox and listbox components (`doctor-grid.component.ts`, `doctor-combobox.component.ts`, `doctor-listbox.component.ts`)
   - For components, use the same component file name for templates and styles (but with a different extension). For example for `qc-chart.component.ts` use `qc-chart.component.html` and `qc-chart.component.scss`
 
-#### Unit test file names
+### Unit test file names
   - Do name test specification files the same as the component they test.
   - Do name test specification files with a suffix of .spec.
   
-#### End-to-End (E2E) test file names
+### End-to-End (E2E) test file names
   - Do name end-to-end test specification files after the feature they test with a suffix of .e2e-spec.
+  
+### Folders names
+  - Create folders named for the feature they represent. 
+  - Do use dashed-case or kebab-case for feauture names.
+  - When a folder grows to contain more than 7 files, start to consider creating a folder for them. Your threshold may be different, so adjust as needed.
+  
+## Modules
 
-#### Component names
+### Module names
+  - Do append the symbol name with the suffix Module.
+  - Do give the file name the .module.ts extension.
+  - Do name the module after the feature and folder it resides in.
+  - Do suffix a RoutingModule class name with RoutingModule.
+  - Do end the filename of a RoutingModule with -routing.module.ts.
+  
+## Components
+
+### Component names
   - Do use consistent names for all assets named after what they represent.
   - Do match the name of the symbol to the name of the file.
   - Do use upper camel case for class names (`QualityControlComponent`)
@@ -34,65 +49,39 @@ The purpose of this style guide is to provide guidance on building Angular appli
   - Add the suffix Dialog for the modal components (`DoctorDialog`)
   - Add the suffix Grid, Combobox or Listbox for the grid, combobox or listbox components (`DoctorGrid`, `DoctorComboBox`, `DoctorListBox`)
   
-#### Service names
-  - Do use consistent names for all services named after their feature.
-  - Do suffix a service class name with Service. For example DoctorService.
-
-#### Directive selectors
-  - Do Use lower camel case for naming the selectors of directives.
-  - Do use a custom prefix for the selector of directives (e.g, the prefix toh from Tour of Heroes).
-  - Do spell non-element selectors in lower camel case unless the selector is meant to match a native HTML attribute.
-
-#### Pipe names
-  - Do use consistent names for all pipes, named after their feature.
-
-#### Module names
-  - Do append the symbol name with the suffix Module.
-  - Do give the file name the .module.ts extension.
-  - Do name the module after the feature and folder it resides in.
-  - Do suffix a RoutingModule class name with RoutingModule.
-  - Do end the filename of a RoutingModule with -routing.module.ts.
-
-#### Folders names
-  - Create folders named for the feature they represent. 
-  - Do use dashed-case or kebab-case for feauture names.
-  - When a folder grows to contain more than 7 files, start to consider creating a folder for them. Your threshold may be different, so adjust as needed.
-  
-### Components
-
-#### Components as elements
+### Components as elements
   - Consider giving components an element selector, as opposed to attribute or class selectors.
 
-#### Extract templates and styles to their own files
+### Extract templates and styles to their own files
   - Do extract templates and styles into a separate file, when more than 3 lines.
   - Do name the template file [component-name].component.html, where [component-name] is the component name.
   - Do name the style file [component-name].component.css, where [component-name] is the component name.
   - Do specify component-relative URLs, prefixed with ./.
   
-#### Component selectors
+### Component selectors
   - Do use dashed-case or kebab-case for naming the element selectors of components.
 
-#### Decorate input and output properties
+### Decorate input and output properties
   - Do use the @Input() and @Output() class decorators instead of the inputs and outputs properties of the @Directive and @Component metadata:
   - Consider placing @Input() or @Output() on the same line as the property it decorates.
   - Avoid input and output aliases except when it serves an important purpose.
   - Add member-access to all the properties, in that case use public
 
-#### Don't prefix output properties
+### Don't prefix output properties
   - Do name events without the prefix on.
   - Do name event handler methods with the prefix on followed by the event name.
 
-#### Member sequence
+### Member sequence
   - Do place properties up top followed by methods.
 
-#### Delegate complex component logic to services
+### Delegate complex component logic to services
   - Do limit logic in a component to only that required for the view. All other logic should be delegated to services.
   - Do move reusable logic to services and keep components simple and focused on their intended purpose.
 
-#### Put presentation logic in the component class
+### Put presentation logic in the component class
   - Do put presentation logic in the component class, and not in the template. Avoid the use of formulas,... in the template.
 
-#### Example 
+### Example 
 
 ```typescript
 @Component({
@@ -116,21 +105,26 @@ export class CalendarFooterComponent {
 ```
 
 
-### Services
-#### Services are singletons
+## Services
+
+### Service names
+  - Do use consistent names for all services named after their feature.
+  - Do suffix a service class name with Service. For example DoctorService.
+
+### Services are singletons
   - Do use services as singletons within the same injector. Use them for sharing data and functionality.
 
-#### Single responsibility
+### Single responsibility
   - Do create services with a single responsibility that is encapsulated by its context.
   - Do create a new service once the service begins to exceed that singular purpose.
 
-#### Providing a service
+### Providing a service
   - Do provide a service with the app root injector in the @Injectable decorator of the service.
 
-#### Use the @Injectable() class decorator
+### Use the @Injectable() class decorator
   - Do use the @Injectable() class decorator instead of the @Inject parameter decorator when using types as tokens for the dependencies of a service.
 
-#### Example 
+### Example 
 
 ```typescript
 @Injectable({
@@ -157,14 +151,14 @@ export class LoadingService {
 }
 ```
 
-### Data Services
-#### Talk to the server through a service
+## Data Services
+### Talk to the server through a service
   - If possible, do use Swagger Codegen
   - Do refactor logic for making data operations and interacting with data to a service.
   - Do make data services responsible for XHR calls, local storage, stashing in memory, or any other data operations.
   - A data service encapsulates these details. It's easier to evolve these details inside the service without affecting its consumers. And it's easier to test the consumers with mock service implementations.
 
-#### Example 
+### Example 
 
 ```typescript
 @Injectable({
@@ -188,10 +182,19 @@ export class PatientService extends BaseService {
 }
 ```
 
-### Directives
-#### Use directives to enhance an element
+## Directives
+### Use directives to enhance an element
   - Do use attribute directives when you have presentation logic without a template.
 
+### Directive selectors
+  - Do Use lower camel case for naming the selectors of directives.
+  - Do use a custom prefix for the selector of directives (e.g, the prefix toh from Tour of Heroes).
+  - Do spell non-element selectors in lower camel case unless the selector is meant to match a native HTML attribute.
+
+## Pipes
+
+### Pipe names
+  - Do use consistent names for all pipes, named after their feature.
 
 ## TSLint
 
