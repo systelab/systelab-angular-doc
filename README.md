@@ -327,7 +327,7 @@ Goto:
 Use the [following scheme](webstorm_ts_code_style.xml) for Webstorm Code Style Scheme.
 
 ```xml
-<code_scheme name="Modulab CodeStyle TS copy" version="173">
+<code_scheme name="Systelab CodeStyle TS" version="173">
   <option name="RIGHT_MARGIN" value="180" />
   <JSCodeStyleSettings>
     <option name="ALIGN_OBJECT_PROPERTIES" value="1" />
