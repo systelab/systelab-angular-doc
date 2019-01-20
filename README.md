@@ -14,6 +14,7 @@ The purpose of this style guide is to provide guidance on building Angular appli
 8. [Pipes](#pipes)
 9. [TSLint](#tslint)
 10. [Webstorm Code Style Scheme](#webstorm-code-style-scheme)
+11. [Prettier](#prettier)
 
 ## Files
 
@@ -370,3 +371,62 @@ Use the [following scheme](webstorm_ts_code_style.xml) for Webstorm Code Style S
 </code_scheme>
 
 ```
+
+## Prettier
+
+Use [Prettier](https://prettier.io/) to format the code and other project files. 
+
+Prettier is an opinionated code formatter. It enforces a consistent style by parsing code and re-printing it with its own rules. It can be run in the IDE on-save, in a pre-commit hook, or in CI environments to ensure that codebase has a consistent style.
+
+
+#### 1. Install Prettier, pretty-quick and husky
+
+```
+npm install prettier husky pretty-quick -D
+```
+
+[pretty-quick](https://github.com/azz/pretty-quick) runs Prettier on changed files.
+
+[husky](https://github.com/typicode/husky) allows to execute pretty-quick as a pre-commit hook to force that all modified files are well formatted before git commit is executed.
+
+
+#### 2. Add Prettier config options
+
+Add file [.prettierrc](.prettierrc) to the root folder of the project.
+
+#### 3. Add pre-commit script
+
+Add pre-commit script in package json executing pretty-quick. Add to script section "precommit": "pretty-quick --staged"
+
+```
+"scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    ...
+    ...
+    "precommit": "pretty-quick --staged"
+},
+```
+
+#### 4. Using Prettier in IDE
+
+###### WebStorm
+
+Install JetBrains Prettier plugin to use Prettier in WebStorm 
+
+#### 4.1 Configure the IDE to format files on save
+
+###### WebStorm
+
+1. Go to Preferences | Tools | File Watchers.
+2. Add new File Watcher and choose Prettier as template.
+3. Choose File type be formated (HTML, Typescript, scss...)
+
+Repeat step 2 and 3 to configure all file types to be formatted on save.
+
+#### 4.2 Format files
+
+###### WebStorm
+
+ - Right click and execute "Reformat with Prettier". Format can be executed in a code selection, the current file, files selection, files inside a folder...
+
