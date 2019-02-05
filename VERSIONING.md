@@ -45,7 +45,7 @@ In order to add changes to an Official branch:
 
 > Before creating the PR, be sure to update, as needed, the npm library version in the package.json file.
 
-## Releasing
+# Releasing
 
 The submitter should create a new release, with the tag version vX.Y.Z and release title X.Y.Z.
 
