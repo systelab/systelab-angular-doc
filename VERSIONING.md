@@ -12,7 +12,7 @@ Minor releases contain new smaller features. Minor releases are fully backward-c
 
 Patch releases are low risk, bug fix releases. No developer assistance is expected during update.
 
-# Branches
+# Branching model
 
 Two types of branches will be considered, the Official branches and the Working branches.
 
@@ -26,16 +26,24 @@ For a new major release, the contributor should create a new Official branch, fo
 
 You do not need to create a new branch in order to create a patch.
 
-Official branches will be named as xxxxxx
+Working branches will be named as xxxxxx
+
+## Branching procedure
 
 In order to add changes to an Official branch:
 
+ - Based on the rules above, decide if you have to create a new Official branch.
  - Create a new Working branch from any Official branch.
  - Commit the changes to the new Working branch.
  - Create a Pull Request from the Working branch to the Official Branch.
- - Once the Pull Request is merged, remove the working branch.
+ - Once the Pull Request is approved it is time to merge the changes. Will be the submitter the responsible for merging.
+ - Finally, the Working branch could be removed.
 
-Before creating the PR, be sure to update, as needed, the npm library version in the package.json file.
+> Before creating the PR, be sure to update, as needed, the npm library version in the package.json file.
 
-Once the PR is approved, create a new tag, with the name vX.Y.Z and name X.Y.Z and Travis will publish the library to npm.
+## Releasing
+
+The submitter should create a new release, with the tag version vX.Y.Z and release title X.Y.Z.
+
+Travis will publish the library to npm.
 
