@@ -16,15 +16,19 @@ Patch releases are low risk, bug fix releases. No developer assistance is expect
 
 Two types of branches will be considered, the Official branches and the Working branches.
 
+### Official branches
+
 Official branches will be named as Major.Minor.x, for example 5.12.x
 
-New rules to Require pull request reviews before merging should be applied to every Official branch. You can use wildcards in order to do so.
+Rules to 'Require pull request reviews before merging' should be applied to every Official branch. You can use wildcards in order to do so.
 
-For a new minor release, the contributor should create a new Official branch, for example 5.13.x
+For each change:
 
-For a new major release, the contributor should create a new Official branch, for example 6.0.x
+- For a new minor change, the contributor should create a new Official branch, for example 5.13.x
+- For a new major change, the contributor should create a new Official branch, for example 6.0.x
+- You do not need to create a new branch for a patch change.
 
-You do not need to create a new branch in order to create a patch.
+### Working branches
 
 Working branches will be named as xxxxxx
 
