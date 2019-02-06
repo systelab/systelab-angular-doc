@@ -24,13 +24,12 @@ Maintenance branches will be named as Major.Minor.x, for example 5.12.x
 
 Rules to 'Require pull request reviews before merging' must be applied to every maintenance branch. You can use wildcards in order to do so: \[1-9]\*.* will do the work
 
-
 ## Branching procedure
 
 For a new change:
 
 - If it is minor change, the contributor should create a new maintenance branch, for example 5.13.x
-- If it is major change, the contributor should create a new maintenance branch, for example 6.0.x
+- If it is major change (this is usually something that you should do from the master branch), the contributor should create a new maintenance branch, for example 6.0.x.
 - You do not need to create a new branch for a patch change.
 
 In order to add changes to a maintenance branch:
@@ -43,9 +42,14 @@ In order to add changes to a maintenance branch:
 
 > Before creating the PR, be sure to update, as needed, the npm library version in the package.json file.
 
+## Release for the Master branch
+
+> Application, should never rely on libraries that are not in a maintenance branch. So, it will be each project responsibility to check that there is a maintenance branch for the library that is planned to use in production.
+
 # Releasing
 
 The submitter should create a new release, with the tag version vX.Y.Z and release title X.Y.Z.
 
 Travis will publish the library to npm.
+
 
