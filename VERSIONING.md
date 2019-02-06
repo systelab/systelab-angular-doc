@@ -42,14 +42,17 @@ In order to add changes to a maintenance branch:
 
 > Before creating the PR, be sure to update, as needed, the npm library version in the package.json file.
 
-## Release for the Master branch
-
-> Application, should never rely on libraries that are not in a maintenance branch. So, it will be each project responsibility to check that there is a maintenance branch for the library that is planned to use in production.
-
 # Releasing
+
+## Library Release
 
 The submitter should create a new release, with the tag version vX.Y.Z and release title X.Y.Z.
 
 Travis will publish the library to npm.
+
+## Application Release
+
+> Application, should never rely on libraries that the source code is not on a maintenance branch. So, it will be each project responsibility to check that the library is in a maintenance branch, or otherwise create it.
+
 
 
