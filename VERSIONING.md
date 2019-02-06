@@ -12,38 +12,30 @@ Minor releases contain new smaller features. Minor releases are fully backward-c
 
 Patch releases are low risk, bug fix releases. No developer assistance is expected during update.
 
-# Branching model
+# Maintenance branches
 
-Two types of branches will be considered, the maintenance branches and the working branches.
-
-### Maintenance branches
-
-After a feature release, you need to manage your maintenance branches.
+After a feature release, it is needed to manage a maintenance branch.
 
 First, if you wish to continue to release maintenance fixes for the feature release made before the recent one, then you must create another branch to track commits for that previous release.
 
-To do this, the original branch is copied to another branch named with the previous release version number
+To do this, the feature branch is copied to another branch named with the previous release version number.
 
 Maintenance branches will be named as Major.Minor.x, for example 5.12.x
 
 Rules to 'Require pull request reviews before merging' must be applied to every maintenance branch. You can use wildcards in order to do so: \[1-9]\*.* will do the work
 
-For each change:
-
-- For a new minor change, the contributor should create a new maintenance branch, for example 5.13.x
-- For a new major change, the contributor should create a new maintenance branch, for example 6.0.x
-- You do not need to create a new branch for a patch change.
-
-### Working branches
-
-Working branches will be named as xxxxxx
 
 ## Branching procedure
 
-In order to add changes to an maintenance branch:
+For a new change:
 
- - Based on the rules above, decide if you have to create a new maintenance branch.
- - Create a new working branch from any maintenance branch.
+- If it is minor change, the contributor should create a new maintenance branch, for example 5.13.x
+- If it is major change, the contributor should create a new maintenance branch, for example 6.0.x
+- You do not need to create a new branch for a patch change.
+
+In order to add changes to a maintenance branch:
+
+ - Create a new working branch from the maintenance branch.
  - Commit the changes to the new working branch.
  - Create a Pull Request from the working branch to the maintenance branch.
  - Once the Pull Request is approved it is time to merge the changes. Will be the submitter the responsible for merging.
