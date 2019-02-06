@@ -20,7 +20,7 @@ Two types of branches will be considered, the Official branches and the Working 
 
 Official branches will be named as Major.Minor.x, for example 5.12.x
 
-Rules to 'Require pull request reviews before merging' should be applied to every Official branch. You can use wildcards in order to do so.
+Rules to 'Require pull request reviews before merging' must be applied to every Official branch. You can use wildcards in order to do so: \[1-9]\*.* will do the work
 
 For each change:
 
