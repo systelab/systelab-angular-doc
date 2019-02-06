@@ -14,18 +14,24 @@ Patch releases are low risk, bug fix releases. No developer assistance is expect
 
 # Branching model
 
-Two types of branches will be considered, the Official branches and the Working branches.
+Two types of branches will be considered, the maintenance branches and the working branches.
 
-### Official branches
+### Maintenance branches
 
-Official branches will be named as Major.Minor.x, for example 5.12.x
+After a feature release, you need to manage your maintenance branches.
 
-Rules to 'Require pull request reviews before merging' must be applied to every Official branch. You can use wildcards in order to do so: \[1-9]\*.* will do the work
+First, if you wish to continue to release maintenance fixes for the feature release made before the recent one, then you must create another branch to track commits for that previous release.
+
+To do this, the original branch is copied to another branch named with the previous release version number
+
+Maintenance branches will be named as Major.Minor.x, for example 5.12.x
+
+Rules to 'Require pull request reviews before merging' must be applied to every maintenance branch. You can use wildcards in order to do so: \[1-9]\*.* will do the work
 
 For each change:
 
-- For a new minor change, the contributor should create a new Official branch, for example 5.13.x
-- For a new major change, the contributor should create a new Official branch, for example 6.0.x
+- For a new minor change, the contributor should create a new maintenance branch, for example 5.13.x
+- For a new major change, the contributor should create a new maintenance branch, for example 6.0.x
 - You do not need to create a new branch for a patch change.
 
 ### Working branches
@@ -34,14 +40,14 @@ Working branches will be named as xxxxxx
 
 ## Branching procedure
 
-In order to add changes to an Official branch:
+In order to add changes to an maintenance branch:
 
- - Based on the rules above, decide if you have to create a new Official branch.
- - Create a new Working branch from any Official branch.
- - Commit the changes to the new Working branch.
- - Create a Pull Request from the Working branch to the Official Branch.
+ - Based on the rules above, decide if you have to create a new maintenance branch.
+ - Create a new working branch from any maintenance branch.
+ - Commit the changes to the new working branch.
+ - Create a Pull Request from the working branch to the maintenance branch.
  - Once the Pull Request is approved it is time to merge the changes. Will be the submitter the responsible for merging.
- - Finally, the Working branch could be removed.
+ - Finally, the working branch could be removed.
 
 > Before creating the PR, be sure to update, as needed, the npm library version in the package.json file.
 
