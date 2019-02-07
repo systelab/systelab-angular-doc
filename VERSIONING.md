@@ -12,7 +12,27 @@ Minor releases contain new smaller features. Minor releases are fully backward-c
 
 Patch releases are low risk, bug fix releases. No developer assistance is expected during update.
 
-# Maintenance branches
+# Branches
+
+## Working branches
+
+Working branches should be named according to the following pattern:
+
+{BaseBranch}-{Type}{Issue#}-{IssueShortTitle}
+
+Where:
+- {BaseBranch}: Name of the maintenance branch or master used to create the working branch
+- {Type}: Letter indicating the type of issue addressed on the branch
+    - F: New feature
+    - B: Bug
+- {Issue#}: GitHub issue number associated to the feature or defect to be addressed on the branch. That would allow better tracking between branches and change description.
+- {ShortTitle}: Short title of the change. Written using UpperCamelCase (https://es.wikipedia.org/wiki/CamelCase)
+Examples
+master-B12-DisableDragAndDrop
+4.1.x-F68-RoleDirective
+
+
+## Maintenance branches
 
 After a feature release, it is needed to manage a maintenance branch.
 
@@ -24,7 +44,7 @@ Maintenance branches will be named as Major.Minor.x, for example 5.12.x
 
 Rules to 'Require pull request reviews before merging' must be applied to every maintenance branch. You can use wildcards in order to do so: \[1-9]\*.* will do the work
 
-## Branching procedure
+### Branching procedure
 
 For a new change:
 
@@ -41,6 +61,14 @@ In order to add changes to a maintenance branch:
  - Finally, the working branch could be removed.
 
 > Before creating the PR, be sure to update, as needed, the npm library version in the package.json file.
+
+### Bug fixing policy
+
+When addressing a bug detected on a branch, it should be fixed at least on:
+- the maintenance branch where needed
+- the master branch
+
+Detected bugs should be tracked as repository issues with the 'Bug' tag. So, their history should indicate for which versions the defect has been fixed.
 
 # Releasing
 
