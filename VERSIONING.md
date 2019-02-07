@@ -26,10 +26,11 @@ Where:
     - F: New feature
     - B: Bug
 - {Issue#}: GitHub issue number associated to the feature or defect to be addressed on the branch. That would allow better tracking between branches and change description.
-- {ShortTitle}: Short title of the change. Written using UpperCamelCase (https://es.wikipedia.org/wiki/CamelCase)
+- {ShortTitle}: Short title of the change. Written using [UpperCamelCase](https://es.wikipedia.org/wiki/CamelCase)
+
 Examples
-master-B12-DisableDragAndDrop
-4.1.x-F68-RoleDirective
+- master-B12-DisableDragAndDrop
+- 4.1.x-F68-RoleDirective
 
 
 ## Maintenance branches
@@ -65,8 +66,8 @@ In order to add changes to a maintenance branch:
 ### Bug fixing policy
 
 When addressing a bug detected on a branch, it should be fixed at least on:
-- the maintenance branch where needed
-- the master branch
+- The maintenance branch where needed
+- The master branch
 
 Detected bugs should be tracked as repository issues with the 'Bug' tag. So, their history should indicate for which versions the defect has been fixed.
 
